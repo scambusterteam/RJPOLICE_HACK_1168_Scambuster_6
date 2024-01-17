@@ -1,0 +1,27 @@
+<div class="">
+    <div class=" container  py-5">
+        <div class="d-flex justify-content-center scamDiv">
+            <h1>Welcome, <span>{{user?.username}}</span></h1>
+            <p>You can use our tool to check the legitimacy of any website or customer care number</p>
+        </div>
+        <div class="my-5">
+            <form  [formGroup]="form">
+                <div class="">
+                    <div class="input-group">
+                        <span class="input-group-text">WebSite URL</span>
+                        <input type="text" aria-label="url" class="form-control" formControlName="url">
+                        <button class="btn btn-success" type="button" (click)="onSubmit('URL')">Submit</button>
+                    </div>
+                </div>
+                <div class="my-5">
+                    <div class="input-group">
+                        <span class="input-group-text">Customer Care Number</span>
+                        <input type="text" aria-label="url" class="form-control" formControlName="phone">
+                        <button class="btn btn-success" type="button" (click)="onSubmit('PHONE')">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

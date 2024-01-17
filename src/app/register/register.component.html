@@ -1,0 +1,125 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form *ngIf="!isSuccessful" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" formControlName="username" />
+        <div class="alert-danger" *ngIf="form.get('username')?.hasError('required')">
+          Username is required
+        </div>
+        <div class="alert-danger" *ngIf="form.get('username')?.hasError('minlength')">
+          Username must be at least 3 characters
+        </div>
+        <div class="alert-danger" *ngIf="form.get('username')?.hasError('maxlength')">
+          Username must be at most 20 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" formControlName="email" />
+        <div class="alert-danger" *ngIf="form.get('email')?.hasError('required')">
+          Email is required
+        </div>
+        <div class="alert-danger" *ngIf="form.get('email')?.hasError('minlength')">
+          Email must be valid.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone no.</label>
+        <input type="text" class="form-control" formControlName="phone" />
+        <div class="alert-danger" *ngIf="form.get('phone')?.hasError('required')">
+          Phone number is required
+        </div>
+        <div class="alert-danger" *ngIf="form.get('phone')?.hasError('minlength')">
+          Phone number must be at least 10 digits.
+        </div>
+        <div class="alert-danger" *ngIf="form.get('phone')?.hasError('pattern')">
+          Phone number must be Valid.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" formControlName="password" />
+        <div class="alert-danger" *ngIf="form.get('password')?.hasError('required')">
+          password is required
+        </div>
+        <div class="alert-danger" *ngIf="form.get('password')?.hasError('minlength')">
+          password must be at least 6 characters
+        </div>
+        <div class="alert-danger" *ngIf="form.get('password')?.hasError('pattern')">
+          Phone number must be Valid.
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          email
+          #email="ngModel"
+        />
+        <div class="alert-danger" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors['required']">Email is required</div>
+          <div *ngIf="email.errors['email']">
+            Email must be a valid email address
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Phone no.</label>
+        <input
+          type="text"
+          class="form-control"
+          name="phone"
+          [(ngModel)]="form.phone"
+          required
+          minlength="10"
+          #phone="ngModel"
+        />
+        <div class="alert-danger" *ngIf="phone.errors && f.submitted">
+          <div *ngIf="phone.errors['required']">Phone number is required</div>
+          <div *ngIf="phone.errors['minlength']">
+            Phone number must be at least 10 digits.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <div class="alert-danger" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div> -->
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+      </div>
+    
+      <div class="alert alert-warning" *ngIf="form.invalid && form.touched">
+        Form contains invalid data. Please fix the errors.
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+  </div>
+</div>
